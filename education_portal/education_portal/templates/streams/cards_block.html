@@ -1,0 +1,15 @@
+<!-- blocks.py created a listBlock iterable, 'cards' -->
+<!-- loop over iterable -->
+{%  load wagtailimages_tags %}
+
+{%  for card in self.cards %}
+  <h3>{{  card.title }}</h3>
+  {%  if card.text  %}
+    <p>{{  card.text }}</p>
+    <picture>
+    {%  image card.image fill-570x370 as card_img %}
+      <img src="{{  card_img.url }}" alt="{{ card_img.alt }}">
+    </picture>
+  {%  endif %}
+{%  endfor  %}
+
