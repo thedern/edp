@@ -1,0 +1,40 @@
+
+{%  extends 'base.html' %}
+{%  load wagtailimages_tags %}
+
+{%  block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="cc-inner-title">{{  page.title }}</h1>
+        {% if page.subtitle %}
+            <p class="cc-inner-subtitle">{{  page.subtitle }}</p>
+        {%  endif %}
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    {% for service in service_pages %}
+    <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card mb-3 text-center">
+            <a href="{{ service.url }}">
+                <picture>
+                    {%  image service.service_image fill-573x369 as img1  %}
+                    <img class="lazy card-img-top" src="{{ img1.url }}" alt="{{ img1.alt }}">
+                </picture>
+            </a>
+            <div class="card-body py-3 px-3">
+                <a href="{{  service.url  }}">
+                    <h5 class="card-title">{{ service.title }}</h5>
+                    <p class="card-description">{{ service.description }}</p>
+                </a>
+                <p class="card-text">
+                    <a href="{{ service.url }}" class="btn btn-link d-inline">More Details</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
