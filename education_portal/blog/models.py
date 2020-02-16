@@ -108,20 +108,6 @@ class BlogEntryPage(Page):
     ]
 
 
-# class Image inclusion into blog
-class BlogPageGalleryImage(Orderable):
-    # parentalkey attaches gallery images to a specific page.  It defines BlogPageGalleryImage as child of the blogpage
-    page = ParentalKey(BlogEntryPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE, related_name='+')
-    caption = models.CharField(blank=True, max_length=250)
-
-    # augment panels with image chooser
-    panels = [
-        ImageChooserPanel('image'),
-        FieldPanel('caption')
-    ]
-
-
 # class tag index page
 class BlogTagIndexPage(Page):
     template = "blog/blog_tag_index_page.html"
