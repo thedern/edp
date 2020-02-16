@@ -62,44 +62,6 @@ class BlogIndexPage(Page):
         context['blogpages'] = blogpages
         return context
 
-    # additions for image carousel on blog index page
-    # main_image = models.ForeignKey(
-    #     "wagtailimages.Image",
-    #     null=True,
-    #     blank=False,
-    #     on_delete=models.SET_NULL,
-    #     related_name="+"
-    # )
-    #
-    # main_cta = models.ForeignKey(
-    #     "wagtailcore.Page",
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name="+"
-    # )
-    #
-    # content = StreamField([("cta", blocks.CTABlock())], null=True, blanl=True)
-    #
-    # content_panels = Page.content_panels + [
-    #     MultiFieldPanel(
-    #         [
-    #             ImageChooserPanel("main_image"),
-    #             PageChooserPanel("main_cta"),
-    #         ],
-    #         heading="Main Image Options",
-    #     ),
-    #     MultiFieldPanel(
-    #         [InlinePanel("blog_carousel_images", max_num=5, min_num=1, label="Image")],
-    #         heading="Carousel Images",
-    #     ),
-    #     StreamFieldPanel("content"),
-    # ]
-    #
-    # class Meta:
-    #     verbose_name = "Home Page"
-    #     verbose_name_plural = "Home Pages"
-
 
 # blog tagging model
 class BlogPageTag(TaggedItemBase):
@@ -174,19 +136,5 @@ class BlogTagIndexPage(Page):
         context['blogpages'] = blogpages
         return context
 
-
-# image carousel class
-# class BlogPageCarouselImages(Orderable):
-#     """ Between 1 and 5 images for the carousel """
-#     page = ParentalKey("BlogIndexPage", related_name="blog_carousel_images")
-#     blog_carousel_image = models.ForeignKey(
-#         "wagtailimages.Image",
-#         null=True,
-#         blank=False,
-#         on_delete=models.SET_NULL,
-#         related_name = "+"
-#     )
-#
-#     panel = [ImageChooserPanel("blog_carousel_image")]
 
 

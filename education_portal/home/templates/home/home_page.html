@@ -34,7 +34,9 @@
 {% block content %}
 
 {#   all stream block html files are injected here  #}
+{#    it is best practice to iterate over the class vs simply 'include_block block.value #}
     {% for block in page.body %}
+    {# similar to django include #}
       {% include_block block %}
     {% endfor %}
 

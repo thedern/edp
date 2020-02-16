@@ -5,8 +5,12 @@ from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, StreamFiel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.blocks import SnippetChooserBlock
 
 # must set education_portal as sources root to import apps
+# import our blocks for use on homepage (accessible via admin console)
+
+
 from streams import blocks
 
 
@@ -48,8 +52,11 @@ class HomePage(Page):
     # define custom streamfields, takes list of tuples
     # uses classes defined in streams.blocks
     body = StreamField([
+        # names in quotes are arbitrary but should be descriptive
         ("title", blocks.TitleBlock()),
         ("cards", blocks.CardsBlock()),
+        ("image_and_text", blocks.ImageAndTextBlock()),
+        ('call_to_action', blocks.CallToActionBlock()),
     ], null=True, blank=True)
 
     # augment content panels with the fields defined in our model
