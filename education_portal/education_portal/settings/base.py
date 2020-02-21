@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'services',
     'flex',
     'streams',
+    'menus',
 
+    'wagtail.contrib.modeladmin',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.contrib.table_block',

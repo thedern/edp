@@ -6,6 +6,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.blocks import SnippetChooserBlock
+from wagtail.core import blocks as wagtail_blocks
 
 # must set education_portal as sources root to import apps
 # import our blocks for use on homepage (accessible via admin console)
@@ -86,6 +87,11 @@ class HomePage(Page):
         ("image_and_text", blocks.ImageAndTextBlock()),
         ('call_to_action', blocks.CallToActionBlock()),
         ('pricing_table', blocks.PricingTableBlock(table_options=new_table_options)),
+        ('richtext_editor', wagtail_blocks.RichTextBlock(
+            # template='streams/simple_richtext_block.html',
+            # limit available features to the following
+            # features=["bold", "italic", "ol", "ul", "link", "heading", 'h2', 'h3']
+        )),
     ], null=True, blank=True)
 
     # augment content panels with the fields defined in our model
