@@ -1,11 +1,18 @@
-# all wagtail, no django
-# panels not required
-# this file will contain reusable 'blocks' of content that will be referenced by models.py
-# blocks are available to any page that loads them into their model
+"""
+all wagtail, no django
+panels not required as these blocks will be imported by other pages and added to those panels
+this file will contain reusable CUSTOM 'blocks' of content that will be referenced by models.py
+blocks are available to any page that loads them into their model
+"""
+
 from django import forms
 from wagtail.core import blocks
 # TitleBlock subclasses blocks.StructBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.contrib.table_block.blocks import TableBlock
+# validation
+from django.core.exceptions import ValidationError
+from django.forms.utils import ErrorList
 
 
 class TitleBlock(blocks.StructBlock):
@@ -52,6 +59,23 @@ class Link(blocks.StructBlock):
     class Meta:
         # references LinkValue class for link logic
         value_class = LinkValue
+
+    # validation
+    def clean(self, value):
+        internal_page = value.get('internal_page')
+        external_link = value.get('external_link')
+        errors = {}
+        if internal_page and external_link:
+            errors['external_link'] = ErrorList(['Both internal and external links cannot be used at the same time'])
+            errors['internal_page'] = ErrorList(['Both internal and external links cannot be used at the same time.'])
+        elif not internal_page and not external_link:
+            errors['external_link'] = ErrorList(['Either internal or external must be selected.'])
+            errors['internal_page'] = ErrorList(['Either internal or external must be selected.'])
+
+        if errors:
+            raise ValidationError('Validation error in your link', params=errors)
+
+        return super().clean(value)
 
 
 # class created to simplify messy CardsBlock class, see below
@@ -134,7 +158,6 @@ class ImageAndTextBlock(blocks.StructBlock):
 
 
 class CallToActionBlock(blocks.StructBlock):
-
     title = blocks.CharBlock(max_length=200, help_text="Max length 200 Characters")
     link = Link()
 
@@ -142,3 +165,13 @@ class CallToActionBlock(blocks.StructBlock):
         template = "streams/call_to_action_block.html"
         icon = "plus"
         label = "Call to Action"
+
+
+# table block
+class PricingTableBlock(TableBlock):
+    """Pricing table block, may use this may not :_"""
+
+    class Meta:
+        template = 'streams/pricing_table_block.html'
+        label = 'table'
+        help_text = 'your pricing table'

@@ -9,9 +9,34 @@ from wagtail.snippets.blocks import SnippetChooserBlock
 
 # must set education_portal as sources root to import apps
 # import our blocks for use on homepage (accessible via admin console)
-
-
 from streams import blocks
+
+# default table options can be edited in the following dictionary
+new_table_options = {
+    'minSpareRows': 0,
+    'startRows': 3,
+    'startCols': 3,
+    'colHeaders': False,
+    'rowHeaders': False,
+    'contextMenu': [
+        'row_above',
+        'row_below',
+        '---------',
+        'col_left',
+        'col_right',
+        '---------',
+        'remove_row',
+        'remove_col',
+        '---------',
+        'undo',
+        'redo'
+    ],
+    'editor': 'text',
+    'stretchH': 'all',
+    # 'height': 108,
+    'renderer': 'text',
+    'autoColumnSize': False,
+}
 
 
 # home sub classes wagtail Page class
@@ -20,6 +45,10 @@ from streams import blocks
 
 # class HomePage --> home_page.html
 class HomePage(Page):
+    # limit where home page may be created
+    parent_page_types = ["wagtailcore.Page"]
+    max_count = 1
+
     lead_text = models.CharField(max_length=140,
                                  blank=True,
                                  help_text='Subheading text under banner')
@@ -46,7 +75,6 @@ class HomePage(Page):
         related_name='+',
         help_text='The banner background image',
         on_delete=models.SET_NULL
-
     )
 
     # define custom streamfields, takes list of tuples
@@ -57,6 +85,7 @@ class HomePage(Page):
         ("cards", blocks.CardsBlock()),
         ("image_and_text", blocks.ImageAndTextBlock()),
         ('call_to_action', blocks.CallToActionBlock()),
+        ('pricing_table', blocks.PricingTableBlock(table_options=new_table_options)),
     ], null=True, blank=True)
 
     # augment content panels with the fields defined in our model

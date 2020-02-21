@@ -8,7 +8,12 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 # wagtail pages combine the views and the models into one, no separate views file #
 # page service_listing_page.html
 class ServiceListingPage(Page):
-    template="services/service_listing_page.html"
+    # limit where page may be created
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["services.ServicePage"]
+    max_count = 1
+
+    template = "services/service_listing_page.html"
     subtitle = models.TextField(blank=True, max_length=500, )
 
     # augment default content_panel with list containing new FieldPanel
@@ -24,8 +29,13 @@ class ServiceListingPage(Page):
         # return all the service pages, pages accessible via variable 'service_pages'
         return context
 
+
 # page service_page.html
 class ServicePage(Page):
+    # limit where page may be created
+    parent_page_types = ["services.ServiceListingPage"]
+    subpage_types = []
+
     # optional template specification (makes for east to read code
     template = "services/service_page.html"
     description = TextField(blank=True, max_length=500)

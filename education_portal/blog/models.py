@@ -25,8 +25,8 @@ from wagtail.core.models import Page, Orderable
 # snippets are reusable and managed from admin panel but not part of the page object
 from wagtail.snippets.models import register_snippet
 
-# from streams import blocks
 
+# from streams import blocks
 
 @register_snippet
 class BlogCategory(models.Model):
@@ -47,9 +47,13 @@ class BlogCategory(models.Model):
 
 # blog index page model/view
 class BlogIndexPage(Page):
+    # limit where page mey be created
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["blog.BlogEntryPage"]
+    max_count = 1
+
     template = "blog/blog_index_page.html"
     intro = RichTextField(blank=True)
-    max_count = 1
 
     # get only published posts in reverse order
     def get_context(self, request):
@@ -73,6 +77,10 @@ class BlogPageTag(TaggedItemBase):
 
 
 class BlogEntryPage(Page):
+    # limit where pages may be created
+    parent_page_types = ["blog.BlogIndexPage"]
+    subpage_types = []
+
     template = "blog/blog_entry_page.html"
     date = models.DateField("Post Date")
     intro = models.CharField(max_length=250)
@@ -81,13 +89,6 @@ class BlogEntryPage(Page):
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     # categories addition
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
-
-    def main_image(self):
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -103,13 +104,15 @@ class BlogEntryPage(Page):
         FieldPanel('intro'),
         # 'full' width of the Wagtail page editor
         FieldPanel('body', classname='full'),
-        # panel addition to attach images to blog post
-        InlinePanel('gallery_images', label='Gallery Images')
     ]
 
 
 # class tag index page
 class BlogTagIndexPage(Page):
+    # limit where pages may be created
+    parent_page_types = ["home.HomePage"]
+    max_count = 1
+
     template = "blog/blog_tag_index_page.html"
 
     def get_context(self, request):
@@ -121,6 +124,3 @@ class BlogTagIndexPage(Page):
         context = super().get_context(request)
         context['blogpages'] = blogpages
         return context
-
-
-
