@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="21fc6fc9-b601-4650-9771-39162fb37328" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/education_portal/menus/menu.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/dxsmi.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/dxsmi.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education_portal/education_portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/education_portal/education_portal/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education_portal/education_portal/templates/includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/education_portal/education_portal/templates/includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education_portal/education_portal/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/education_portal/education_portal/templates/includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education_portal/menus/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/education_portal/menus/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education_portal/menus/templatetags/menu_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/education_portal/menus/templatetags/menu_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/education_portal/menus/wagtail_hooks.py" beforeDir="false" afterPath="$PROJECT_DIR$/education_portal/menus/wagtail_hooks.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\dxsmi\code\python\wagtail\edp\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XJptlbzIn4rVkSjRAwzIeGK81m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../django/django_vue/vsupalovs_blog" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal\education_portal\static\css" />
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal\education_portal\templates\streams" />
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal\home\templates\home" />
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal\education_portal\templates" />
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal\education_portal\static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal\education_portal\templates\streams" />
+      <recent name="C:\Users\dxsmi\code\python\wagtail\edp\education_portal" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="edp" type="Python.DjangoServer" factoryName="Django server">
+      <module name="education_portal" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="education_portal.settings.dev" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\dxsmi\code\python\wagtail\edp\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21fc6fc9-b601-4650-9771-39162fb37328" name="Default Changelist" comment="" />
+      <created>1580774268557</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580774268557</updated>
+      <workItem from="1580774273456" duration="272000" />
+      <workItem from="1580774617019" duration="256000" />
+      <workItem from="1580778837832" duration="6868000" />
+      <workItem from="1580859345680" duration="18433000" />
+      <workItem from="1580910950034" duration="8837000" />
+      <workItem from="1581021487056" duration="6136000" />
+      <workItem from="1581415912102" duration="7604000" />
+      <workItem from="1581590747104" duration="2346000" />
+      <workItem from="1581728730962" duration="20731000" />
+      <workItem from="1582244098492" duration="23915000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="309" y="116" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580779223961">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="309" y="116" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1707.920@0.0.1707.920" timestamp="1580779223961" />
+    <state x="961" y="200" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581590614846">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="961" y="200" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1707.920@0.0.1707.920" timestamp="1581590614846" />
+    <state x="634" y="203" key="FileChooserDialogImpl" timestamp="1581981366672">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="634" y="203" key="FileChooserDialogImpl/0.0.1707.920@0.0.1707.920" timestamp="1581981366672" />
+    <state width="809" height="185" key="GridCell.Tab.0.bottom" timestamp="1582370805893">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="903" height="186" key="GridCell.Tab.0.bottom/0.0.1707.920/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582248488240" />
+    <state width="1663" height="22" key="GridCell.Tab.0.bottom/0.0.1707.920/-1920.0.1920.1040@0.0.1707.920" timestamp="1582244507772" />
+    <state width="809" height="185" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1582370805893" />
+    <state width="809" height="185" key="GridCell.Tab.0.center" timestamp="1582370805892">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="903" height="186" key="GridCell.Tab.0.center/0.0.1707.920/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582248488240" />
+    <state width="1663" height="22" key="GridCell.Tab.0.center/0.0.1707.920/-1920.0.1920.1040@0.0.1707.920" timestamp="1582244507772" />
+    <state width="809" height="185" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1582370805892" />
+    <state width="809" height="185" key="GridCell.Tab.0.left" timestamp="1582370805892">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="903" height="186" key="GridCell.Tab.0.left/0.0.1707.920/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582248488240" />
+    <state width="1663" height="22" key="GridCell.Tab.0.left/0.0.1707.920/-1920.0.1920.1040@0.0.1707.920" timestamp="1582244507771" />
+    <state width="809" height="185" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1582370805892" />
+    <state width="809" height="185" key="GridCell.Tab.0.right" timestamp="1582370805893">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state width="903" height="186" key="GridCell.Tab.0.right/0.0.1707.920/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582248488240" />
+    <state width="1663" height="22" key="GridCell.Tab.0.right/0.0.1707.920/-1920.0.1920.1040@0.0.1707.920" timestamp="1582244507772" />
+    <state width="809" height="185" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1582370805893" />
+    <state x="355" y="104" key="SettingsEditor" timestamp="1580779139517">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="355" y="104" key="SettingsEditor/0.0.1707.920@0.0.1707.920" timestamp="1580779139517" />
+    <state x="527" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1582244100702">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="527" y="285" key="com.intellij.ide.util.TipDialog/0.0.1707.920/-1920.0.1920.1040@0.0.1707.920" timestamp="1582244100702" />
+    <state x="527" y="285" key="com.intellij.ide.util.TipDialog/0.0.1707.920@0.0.1707.920" timestamp="1581728731247" />
+    <state x="946" y="100" width="668" height="720" key="dock-window-1" timestamp="1580869155611">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="946" y="100" width="668" height="720" key="dock-window-1/0.0.1707.920@0.0.1707.920" timestamp="1580869155611" />
+    <state x="943" y="200" width="672" height="678" key="search.everywhere.popup" timestamp="1582280577541">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="943" y="200" width="672" height="678" key="search.everywhere.popup/0.0.1707.920@0.0.1707.920" timestamp="1582280577541" />
+  </component>
+</project>
