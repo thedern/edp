@@ -2,6 +2,8 @@
   <dictionary name="dxsmi">
     <words>
       <w>blogpages</w>
+      <w>clusterable</w>
+      <w>modeladmin</w>
     </words>
   </dictionary>
 </component>
