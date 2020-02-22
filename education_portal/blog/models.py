@@ -25,8 +25,8 @@ from wagtail.core.models import Page, Orderable
 # snippets are reusable and managed from admin panel but not part of the page object
 from wagtail.snippets.models import register_snippet
 
-# from streams import blocks
 
+# from streams import blocks
 
 @register_snippet
 class BlogCategory(models.Model):
@@ -47,9 +47,13 @@ class BlogCategory(models.Model):
 
 # blog index page model/view
 class BlogIndexPage(Page):
+    # limit where page mey be created
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["blog.BlogEntryPage"]
+    max_count = 1
+
     template = "blog/blog_index_page.html"
     intro = RichTextField(blank=True)
-    max_count = 1
 
     # get only published posts in reverse order
     def get_context(self, request):
@@ -62,44 +66,6 @@ class BlogIndexPage(Page):
         context['blogpages'] = blogpages
         return context
 
-    # additions for image carousel on blog index page
-    # main_image = models.ForeignKey(
-    #     "wagtailimages.Image",
-    #     null=True,
-    #     blank=False,
-    #     on_delete=models.SET_NULL,
-    #     related_name="+"
-    # )
-    #
-    # main_cta = models.ForeignKey(
-    #     "wagtailcore.Page",
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name="+"
-    # )
-    #
-    # content = StreamField([("cta", blocks.CTABlock())], null=True, blanl=True)
-    #
-    # content_panels = Page.content_panels + [
-    #     MultiFieldPanel(
-    #         [
-    #             ImageChooserPanel("main_image"),
-    #             PageChooserPanel("main_cta"),
-    #         ],
-    #         heading="Main Image Options",
-    #     ),
-    #     MultiFieldPanel(
-    #         [InlinePanel("blog_carousel_images", max_num=5, min_num=1, label="Image")],
-    #         heading="Carousel Images",
-    #     ),
-    #     StreamFieldPanel("content"),
-    # ]
-    #
-    # class Meta:
-    #     verbose_name = "Home Page"
-    #     verbose_name_plural = "Home Pages"
-
 
 # blog tagging model
 class BlogPageTag(TaggedItemBase):
@@ -111,6 +77,10 @@ class BlogPageTag(TaggedItemBase):
 
 
 class BlogEntryPage(Page):
+    # limit where pages may be created
+    parent_page_types = ["blog.BlogIndexPage"]
+    subpage_types = []
+
     template = "blog/blog_entry_page.html"
     date = models.DateField("Post Date")
     intro = models.CharField(max_length=250)
@@ -119,13 +89,6 @@ class BlogEntryPage(Page):
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     # categories addition
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
-
-    def main_image(self):
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -141,27 +104,15 @@ class BlogEntryPage(Page):
         FieldPanel('intro'),
         # 'full' width of the Wagtail page editor
         FieldPanel('body', classname='full'),
-        # panel addition to attach images to blog post
-        InlinePanel('gallery_images', label='Gallery Images')
-    ]
-
-
-# class Image inclusion into blog
-class BlogPageGalleryImage(Orderable):
-    # parentalkey attaches gallery images to a specific page.  It defines BlogPageGalleryImage as child of the blogpage
-    page = ParentalKey(BlogEntryPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey('wagtailimages.Image', on_delete=models.CASCADE, related_name='+')
-    caption = models.CharField(blank=True, max_length=250)
-
-    # augment panels with image chooser
-    panels = [
-        ImageChooserPanel('image'),
-        FieldPanel('caption')
     ]
 
 
 # class tag index page
 class BlogTagIndexPage(Page):
+    # limit where pages may be created
+    parent_page_types = ["home.HomePage"]
+    max_count = 1
+
     template = "blog/blog_tag_index_page.html"
 
     def get_context(self, request):
@@ -173,20 +124,3 @@ class BlogTagIndexPage(Page):
         context = super().get_context(request)
         context['blogpages'] = blogpages
         return context
-
-
-# image carousel class
-# class BlogPageCarouselImages(Orderable):
-#     """ Between 1 and 5 images for the carousel """
-#     page = ParentalKey("BlogIndexPage", related_name="blog_carousel_images")
-#     blog_carousel_image = models.ForeignKey(
-#         "wagtailimages.Image",
-#         null=True,
-#         blank=False,
-#         on_delete=models.SET_NULL,
-#         related_name = "+"
-#     )
-#
-#     panel = [ImageChooserPanel("blog_carousel_image")]
-
-

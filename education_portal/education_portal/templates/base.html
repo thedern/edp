@@ -39,9 +39,9 @@
     </head>
 
     <body>
-        {% wagtailuserbar %}
+{#        {% wagtailuserbar %}#}
 
-{#        {% include "includes/header.html" %}#}
+        {% include "includes/header.html" %}
 
         {% block banner %}{% endblock %}
 
@@ -49,7 +49,7 @@
           {% block content %}{% endblock %}
         </main>
 
-{#        {% include "includes/footer.html" %}#}
+        {% include "includes/footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/index.js' %}"></script>

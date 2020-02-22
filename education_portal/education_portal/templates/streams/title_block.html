@@ -1,0 +1,11 @@
+<!-- title, takes object 'self' from block-->
+<!-- self represents block object as we subclassed the StructBlock, else we would need to to use 'value.text' -->
+<!-- creates a new row for every title block added in the admin -->
+<div class="row text-center cc-title-block">
+  <div class="col">
+    <h3 class="cc-title-title mb-0">
+      {{ self.text }}
+    </h3>
+  </div>
+</div>
+
