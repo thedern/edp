@@ -1,11 +1,47 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue">
+{%  load static menu_tags %}
+{%  get_menu "header" as navigation %}
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="#">educationportal.com</a>
+{#<section class="py-4 mt-lg-5 mt-0" style="background-color: #999">#}
+{#  <div class="container">#}
+{#    <div class="row align-items-center">#}
+{#      <div class="col-lg-8 text-lg-left text-center">#}
+{#        <h2 class="h2 cc-contact-footer-h2">#}
+{#          Call to Action#}
+{#        </h2>#}
+{#        <p class="cc-contact-footer-p mb-0">#}
+{#          Lorem Ipsum#}
+{#        </p>#}
+{#      </div>#}
+{#      <div class="col-lg-4 text-lg-right text-center">#}
+{#        <a href="@todo" class="btn btn-light btn-lg mt-lg-0 mt-3">@todo</a>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</section>#}
+
+
+<footer class="py-4 text-dark text-md-left text-center cc-footer" style="background-color: #444">
+<div class="container">
+  <div class="row mx-lg-n3">
+    <div class="px-lg-3 col-lg-6 col-md-6 col-sm-12 text-center">
+      <div class="cc-footer-title">Links</div>
+       {%  for item in navigation.menu_items.all %}
+         <a href="@todo" class="cc-footer-link-lg d-block">
+         {{ item.title }}
+         </a>
+       {%  endfor %}
+    </div>
+    <div class="px-lg-3 col-lg-6 col-md-6 col-sm-12 text-center">
+      <div class="cc-footer-title">Contact Us</div>
+      @todo Add Contact
+    </div>
   </div>
-  <!-- Copyright -->
-
+</div>
+<div class="footer-copyright text-center py-3 text-light text-center" >
+  © 2020 Copyright: <a href="#" style="color: #999"> linkece.com</a>
+</div>
 </footer>
+
+
 <!-- Footer -->

@@ -31,6 +31,33 @@ class MenuItem(Orderable):
     # link menu_items to menu class
     page = ParentalKey("Menu", related_name="menu_items")
 
+    # property to return link and keep template clean
+    @property
+    def link(self) -> str:
+        if self.link_page:
+            return self.link_page.url
+        elif self.link_url:
+            return self.link_url
+        else:
+            return '#'
+
+    # property for missing title condition and keep template clean
+    @property
+    def title(self):
+        if self.link_page and not self.link_title:
+            # if no assigned title return page's default title property
+            return self.link_page.title
+        elif self.link_title:
+            return self.link_title
+        else:
+            return "Missing Title"
+
+    # get home link
+    @property
+    def home_url(self) -> str:
+        if self.link_title == "Home":
+            return self.link_page.url
+
 
 # Clusterable allows for many menu items
 class Menu(ClusterableModel):

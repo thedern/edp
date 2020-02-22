@@ -1,9 +1,14 @@
+{# create menu via menu tags #}
 {% load static menu_tags %}
-{# get_menu id from menu_tags.py, we pass in a 'slug', which is 'header' #}
+{# get_menu id from 'menus/templatetags/menu_tags.py', we pass in a 'slug', which is 'header' #}
 {% get_menu "header" as navigation %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Education Portal</a>
+{%  for item in navigation.menu_items.all %}
+  {% if item.link_title == "Home" %}
+    <a class="navbar-brand" href="{{ item.link_page.url }}">LINKECE</a>
+  {%  endif %}
+{%  endfor %}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,7 +16,8 @@
     <ul class="navbar-nav ml-auto">
       {%  for item in navigation.menu_items.all %}
       <li class="nav-item active">
-        <a class="nav-link" href="{% if item.link_page %}{{ item.link_page.url }}{% elif item.link_url %}{{ item.link_url }}{% else %}#{% endif %}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.link_title }} </a>
+      {# class property supply conditional link and title logic#}
+        <a class="nav-link" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }} </a>
       </li>
       {%  endfor %}
     </ul>
