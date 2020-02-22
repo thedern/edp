@@ -3,6 +3,13 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
+{% block extra_css %}
+  <style>
+    body {background-color: #999;}
+    h2 a {color: #122b40}
+  </style>
+{% endblock %}
+
 {% block body_class %}template-blogpage{% endblock %}
 
 {#template for all blog entries#}

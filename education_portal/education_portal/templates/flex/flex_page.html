@@ -4,14 +4,15 @@
 {%  block content %}
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <h1 class="cc-inner-title">{{  page.title }}</h1>
+      <h1 class="cc-inner-title text-center">{{  page.title }}</h1>
     </div>
   </div>
 
 {#  all stream block html files are injected here  #}
 {#  it is best practice to iterate over the class vs simply 'include_block block.value #}
+
   {% for block in page.body %}
-    {# simple_richtext_block.html injects here #}
+    {# see templates/streams/<html> to control look and feel of what injects here #}
     {% include_block block %}
   {% endfor %}
 

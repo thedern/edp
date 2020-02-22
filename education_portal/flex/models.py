@@ -8,6 +8,32 @@ from streams import blocks
 from wagtail.core import blocks as wagtail_blocks
 from wagtail.images.blocks import ImageChooserBlock
 
+new_table_options = {
+    'minSpareRows': 0,
+    'startRows': 3,
+    'startCols': 3,
+    'colHeaders': False,
+    'rowHeaders': False,
+    'contextMenu': [
+        'row_above',
+        'row_below',
+        '---------',
+        'col_left',
+        'col_right',
+        '---------',
+        'remove_row',
+        'remove_col',
+        '---------',
+        'undo',
+        'redo'
+    ],
+    'editor': 'text',
+    'stretchH': 'all',
+    # 'height': 108,
+    'renderer': 'text',
+    'autoColumnSize': False,
+}
+
 
 # generic page
 class FlexPage(Page):
@@ -24,7 +50,7 @@ class FlexPage(Page):
         ('richtext_editor', wagtail_blocks.RichTextBlock(
             template='streams/simple_richtext_block.html',
             # limit available features to the following
-            features=["bold", "italic", "ol", "ul", "link"]
+            # features=["bold", "italic", "ol", "ul", "link"]
         )),
         ('large_image', ImageChooserBlock(
             help_text='Add a large image to the page, 1200x775',
@@ -33,7 +59,8 @@ class FlexPage(Page):
         ('small_image', ImageChooserBlock(
             help_text='Add a small image to the page, 900x450',
             template="streams/small_image_block.html"
-        ))
+        )),
+        ('pricing_table', blocks.PricingTableBlock(table_options=new_table_options)),
     ], null=True, blank=True)
 
     # expose the body fields via the admin interface for editing

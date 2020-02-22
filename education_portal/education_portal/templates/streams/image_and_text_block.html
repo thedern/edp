@@ -13,7 +13,7 @@
               <picture>
               {# image always shown, only links are optional#}
                 {%  image self.image fill-786x552 as img %}
-                <img src="{{ img.url }}" alt="{{ img.alt }}" style='width: 100%; height: auto'>
+                <img class="border border-danger" src="{{ img.url }}" alt="{{ img.alt }}" style='width: 100%; height: auto'>
               </picture>
             {%  if self.link.url %}
               </a>
