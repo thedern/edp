@@ -10,6 +10,7 @@
 /.tox/
 /venv
 venv/
+.idea/
 /node_modules/
 npm-debug.log*
 *.idea/
