@@ -16,6 +16,7 @@ l18n==2018.5
 Pillow==6.2.2
 pytz==2019.3
 requests==2.22.0
+sentry-sdk==0.14.2
 six==1.14.0
 sqlparse==0.3.0
 Unidecode==1.1.1
