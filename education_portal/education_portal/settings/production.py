@@ -1,9 +1,18 @@
 import os
 from .base import *
+import environ
 
-# all information in this file needs to be moved to .env file
-DEBUG = False
-SECRET_KEY = '&^kwxz2zf!x=%+358)i#^t(f@^fd%z0wfa5r$cm$^95-_m#z0!'
+env = environ.Env(DEBUG=(bool, False))
+env_file = os.path.join(BASE_DIR, ".env")
+environ.Env.read_env(env_file)
+
+# False if not in os.environ
+DEBUG = env('DEBUG')
+SECRET_KEY = env("SECRET_KEY")
+DB_PASS = env('DB_PASS')
+DB_USER = env('DB_USER')
+DB_NAME = env('DB_NAME')
+
 ALLOWED_HOSTS = ['localhost', 'linkece.com', '45.79.143.131']
 cwd = os.getcwd()
 CACHES = {
@@ -16,9 +25,9 @@ CACHES = {
 DATABASES = {
     "default": {
         "ENGINE": 'django.db.backends.postgresql_psycopg2',
-        "NAME": 'education_portal',
-        "USER": 'edp_user',
-        "PASSWORD": 'zrx1200r',
+        "NAME": DB_NAME,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASS,
         "HOST": "localhost",
         "PORT": "",
     }
