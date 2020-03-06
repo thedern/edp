@@ -8,7 +8,7 @@ environ.Env.read_env(env_file)
 
 # False if not in os.environ
 DEBUG = env('DEBUG')
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env('SECRET_KEY')
 DB_PASS = env('DB_PASS')
 DB_USER = env('DB_USER')
 DB_NAME = env('DB_NAME')
