@@ -97,7 +97,7 @@ class FlexPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel("body"),
         MultiFieldPanel(
-            [InlinePanel("carousel_images", max_num=10, min_num=1, label="Image")],
+            [InlinePanel("carousel_images", max_num=10, min_num=0, label="Image")],
             heading="Carousel Images",
         ),
     ]

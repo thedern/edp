@@ -2,7 +2,7 @@
 {%  load wagtailcore_tags wagtailimages_tags %}
 
 {% block extra_css %}
-   {# Override this in templates to add extra stylesheets #}
+   {# Override this in templates to add extra stylesheets, image carousel support #}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 {% endblock %}
 
@@ -15,7 +15,7 @@
 
 
   {# Example of an Orderable from home/models.py #}
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleControls" class="carousel slide mt-2 mb-4" data-ride="carousel">
       <div class="carousel-inner">
           {% for loop_cycle in self.carousel_images.all %}
               {% image loop_cycle.carousel_image fill-900x400 as img %}
@@ -43,7 +43,7 @@
   {% endfor %}
 
   {% block extra_js %}
-      {# Override this in templates to add extra javascript #}
+      {# Override this in templates to add extra javascript, image carousel support #}
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
