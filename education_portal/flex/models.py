@@ -1,12 +1,28 @@
 from django.db import models
-from wagtail.admin.edit_handlers import StreamFieldPanel
-from wagtail.core.fields import StreamField
-from wagtail.core.models import Page
+from wagtail.admin.edit_handlers import (
+    StreamFieldPanel,
+    MultiFieldPanel,
+    InlinePanel,
+)
+
+from wagtail.core.fields import (
+    StreamField,
+)
+
+from wagtail.core.models import (
+    Page,
+    Orderable
+)
+from modelcluster.fields import ParentalKey
+
 # import all blocks from our Streams
 from streams import blocks
-# import standard blocks from wagtail as wagatail blocks to differentiate from mine
+
+# import standard blocks from wagtail, wagtail blocks to differentiate from mine
 from wagtail.core import blocks as wagtail_blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.images.edit_handlers import ImageChooserPanel
+
 
 new_table_options = {
     'minSpareRows': 0,
@@ -33,6 +49,20 @@ new_table_options = {
     'renderer': 'text',
     'autoColumnSize': False,
 }
+
+
+# Inage Carousel
+class FlexPageCarouselImages(Orderable):
+    page = ParentalKey("flex.FlexPage", related_name="carousel_images")
+    carousel_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+
+    panels = [ImageChooserPanel("carousel_image")]
 
 
 # generic page
@@ -65,7 +95,11 @@ class FlexPage(Page):
 
     # expose the body fields via the admin interface for editing
     content_panels = Page.content_panels + [
-        StreamFieldPanel("body")
+        StreamFieldPanel("body"),
+        MultiFieldPanel(
+            [InlinePanel("carousel_images", max_num=10, min_num=0, label="Image")],
+            heading="Carousel Images",
+        ),
     ]
 
     class Meta:

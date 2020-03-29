@@ -14,19 +14,19 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% else %}The best re-usable rocket performance maintenance service on Earth.{% endif %}" />
+        <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% else %}Early childhood education links portal.{% endif %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <meta property="og:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% with self.get_site.site_name as site_name %}{% if site_name %}- {{ site_name }}{% endif %}{% endwith %}" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="//{{ request.site.hostname }}" />
         <meta property="og:image" content="//{{ request.site.hostname }}{% static 'images/facebook.png' %}" />
-        <meta property="og:description" content="{% if self.search_description %}{{ self.search_description }}{% else %}The best re-usable rocket performance maintenance service on Earth.{% endif %}" />
+        <meta property="og:description" content="{% if self.search_description %}{{ self.search_description }}{% else %}Early childhood education links portal.{% endif %}" />
         <meta property="og:site_name" content="education_portal" />
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %} | {{ request.site.site_name }}">
-        <meta name="twitter:description" content="{% if self.search_description %}{{ self.search_description }}{% else %}The best re-usable rocket performance maintenance service on Earth.{% endif %}">
+        <meta name="twitter:description" content="{% if self.search_description %}{{ self.search_description }}{% else %}Early childhood education links portal.{% endif %}">
         <meta name="twitter:image:src" content="//{{ request.site.hostname }}{% static 'images/twitter.png' %}">
 
 
